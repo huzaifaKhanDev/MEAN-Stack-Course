@@ -1,0 +1,14 @@
+<div class="post-create-wrapper">
+<mat-card>
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="enteredTitle">
+  </mat-form-field>
+  <mat-form-field>
+  <textarea matInput rows="6" [(ngModel)]="enteredContent"></textarea>
+</mat-form-field>
+<button
+color="primary"
+mat-raised-button (click)="onAddPost()">Save Post</button>
+<p></p>
+</mat-card>
+</div>
