@@ -3,6 +3,7 @@ import { map, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { Post } from '../interfaces/post';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ private  posts: Post[] = [];
 private postUpdated = new Subject<Post[]>();
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { }
 
   getPostUpdatedListener(){
@@ -53,6 +55,7 @@ private postUpdated = new Subject<Post[]>();
       post.id = id;
       this.posts.push(post);
       this.postUpdated.next([...this.posts]);
+      this.router.navigate(['/']);
     });
   };
 
@@ -65,6 +68,7 @@ private postUpdated = new Subject<Post[]>();
       updatedPosts[oldPostIndex] = post;
       this.posts = updatedPosts;
       this.postUpdated.next([...this.posts]);
+      this.router.navigate(['/']);
     });
   }
 

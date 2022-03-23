@@ -1,8 +1,10 @@
 <div class="post-create-wrapper">
 <mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
   <form
   (submit)="onSavePost(postForm)"
-  #postForm="ngForm">
+  #postForm="ngForm"
+  *ngIf="!isLoading">
     <mat-form-field>
       <mat-label>Post Title</mat-label>
       <input

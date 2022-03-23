@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
 import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 
@@ -13,9 +14,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { HeaderComponent } from './header/header.component';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -35,6 +35,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
+    MatProgressSpinnerModule,
     MatExpansionModule
 
   ],
