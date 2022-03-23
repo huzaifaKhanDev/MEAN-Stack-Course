@@ -1,7 +1,7 @@
 <div class="post-create-wrapper">
 <mat-card>
   <form
-  (submit)="onAddPost(postForm)"
+  (submit)="onSavePost(postForm)"
   #postForm="ngForm">
     <mat-form-field>
       <mat-label>Post Title</mat-label>
@@ -9,7 +9,7 @@
       matInput
       type="text"
       name="title"
-      ngModel
+      [ngModel] = "post?.title"
       required
       minlength="3"
       #title="ngModel">
@@ -22,7 +22,7 @@
     matInput
     rows="6"
     name="content"
-    ngModel
+    [ngModel] = "post?.content"
     required
     #content="ngModel"></textarea>
     <mat-error *ngIf="content.invalid">Please enter post content.</mat-error>
