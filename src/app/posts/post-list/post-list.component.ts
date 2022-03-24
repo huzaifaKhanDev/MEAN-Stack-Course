@@ -1,7 +1,17 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Post } from 'src/app/interfaces/post';
-import { PostsService } from '../posts.service';
-import { Subscription } from 'rxjs';
+import {
+  Component,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
+import {
+  Post
+} from 'src/app/interfaces/post';
+import {
+  PostsService
+} from '../posts.service';
+import {
+  Subscription
+} from 'rxjs';
 
 @Component({
   selector: 'app-post-list',
@@ -10,29 +20,27 @@ import { Subscription } from 'rxjs';
 })
 export class PostListComponent implements OnInit, OnDestroy {
 
-  posts : Post[] = [];
+  posts: Post[] = [];
   public postsSub!: Subscription;
   isLoading = false;
 
-  constructor(public postsService: PostsService) { }
+  constructor(public postsService: PostsService) {}
 
   ngOnInit() {
     this.isLoading = true;
-   this.postsService.getPosts();
+    this.postsService.getPosts();
 
-   this.postsSub = this.postsService.getPostUpdatedListener()
-    .subscribe((posts: Post[]) => {
-      this.posts = posts;
-      this.isLoading = false;
-      console.log('postLists',posts)
-    });
+    this.postsSub = this.postsService.getPostUpdatedListener()
+      .subscribe((posts: Post[]) => {
+        this.posts = posts;
+        this.isLoading = false;
+      });
   }
-  onDelete(postId: string){
+  onDelete(postId: string) {
     this.postsService.deletePost(postId)
   }
   ngOnDestroy() {
-      this.postsSub.unsubscribe();
+    this.postsSub.unsubscribe();
   }
 
 }
-

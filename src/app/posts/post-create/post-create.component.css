@@ -7,3 +7,19 @@ mat-form-field {
 mat-spinner {
   margin: auto;
 }
+.upload-img-btn {
+  padding: 1rem 0;
+}
+input[type="file"]{
+  visibility: hidden;
+}
+.image-preview {
+  height: 5rem;
+  margin: 1rem 0;
+}
+.image-preview img {
+  height: 100%;
+}
+.save-post-btn {
+  text-align: end;
+}
